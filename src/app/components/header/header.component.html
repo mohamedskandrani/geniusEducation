@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html"><i class="flaticon-university"></i>Genius <br><small>University</small></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+        <div class="collapse navbar-collapse row" id="ftco-nav">
+            <ul class="navbar-nav ml-auto col-12">
+                <li class="nav-item"><a routerLink="" class="nav-link">Home</a></li>
+                <li class="nav-item" *ngIf="!isLoggedIn()|| decoded?.role === 'student'"><a routerLink="about" class="nav-link">About</a></li>
+                <li class="nav-item"><a routerLink="courses" class="nav-link">Courses</a></li>
+                <li class="nav-item"><a routerLink="teachers" class="nav-link">teachers</a></li>
+                <li *ngIf="isLoggedIn() && decoded?.role === 'admin' || decoded?.role === 'teacher'" class="nav-item"><a routerLink="students" class="nav-link">Students</a></li>
+                <li class="nav-item"><a *ngIf="isLoggedIn() && decoded?.role === 'student'" routerLink="student-assaissement" class="nav-link">assaissement</a></li>
+                <div class="nav-item dropdown">
+                    <a *ngIf="isLoggedIn() && decoded?.role === 'admin' || decoded?.role === 'teacher'" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dashboard</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        <a *ngIf="decoded?.role === 'teacher'" class="dropdown-item" routerLink="addCourse">Add Course</a>
+                        <a *ngIf="decoded?.role === 'admin'" class="dropdown-item" routerLink="addStudent">Add Student</a>
+                        <a *ngIf="decoded?.role === 'admin' || decoded?.role === 'teacher'" class="dropdown-item" routerLink="admin">Admin</a>
+                    </div>
+                </div>
+                <li class="nav-item"><a routerLink="blog" class="nav-link">Blog</a></li>
+                <li class="nav-item" *ngIf="!isLoggedIn()|| decoded?.role === 'student'"><a routerLink="event" class="nav-link">Events</a></li>
+                <li class="nav-item" *ngIf="!isLoggedIn()|| decoded?.role === 'student'"><a routerLink="contact" class="nav-link">Contact</a></li>
+                <div class="nav-item dropdown">
+                    <a *ngIf="!isLoggedIn()" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sign Up As A</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        <a class="dropdown-item" routerLink="signUp-teacher">Teacher</a>
+                        <a class="dropdown-item" routerLink="signUp-student">Student</a>
+                        <a class="dropdown-item" routerLink="signUp-parent">Parent</a>
+                    </div>
+                </div>
+                <li *ngIf="isLoggedIn() && decoded?.role === 'parent' " class="nav-item"><a routerLink="myChildren" class="nav-link">my children</a></li>
+                <li *ngIf="!isLoggedIn()" class="nav-item"><a routerLink="logIn" class="nav-link">login</a></li>
+                <li *ngIf="isLoggedIn()" class="nav-item"><a routerLink="" class="nav-link" (click)="logOut()">logout</a></li>
+                <li class="nav-item"><a routerLink="search" class="nav-link">search</a></li>
+                <li class="nav-item" *ngIf="isLoggedIn()">
+                    <a href="index.html" class="nav-link d-flex align-items-center">
+                        <img *ngIf="decoded?.img" [src]="decoded?.img" alt="User Photo" class="rounded-circle mr-2" style="width: 60px; height: 60px;">
+                        <span>Welcome, {{ decoded?.firstName }}</span>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- <div class="ml-auto">
+    <nav class="site-navigation position-relative text-right" role="navigation">
+        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+            x
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li class="dropdown" *ngIf="decoded?.role == 'admin' || decoded?.role == 'teacher' ">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    dashboard   
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a routerLink="addCourse" class="dropdown-item" href="#">add Course</a>
+                    <a routerLink="addStudent" class="dropdown-item" href="#">add Student</a>
+                    <a routerLink="admin" class="dropdown-item" href="#">dashboard</a>
+                </div>
+            </li>
+            <li><a routerLink="matches" class="nav-link">all Matches</a></li>
+            <li><a routerLink="player" class="nav-link">Players</a></li>
+            <li><a routerLink="teams" class="nav-link">teams</a></li>
+            <li *ngIf="!isLoggedIn()"><a routerLink="signin" class="nav-link">login</a></li>
+            <li *ngIf="!isLoggedIn()"><a routerLink="inscription" class="nav-link">signup</a></li>
+            <li *ngIf="isLoggedIn()"><a routerLink="inscription" class="nav-link" (click)="LogOut()">logout</a></li>
+            <li><a routerLink="research" class="nav-link">research</a></li>
+            <li><a routerLink="weather" class="nav-link">weather</a></li>
+            <li *ngIf="isLoggedIn()"><a href="index.html" class="nav-link">welcome {{decoded?.firstName}}</a></li>
+        </ul>
+    </nav>
+
+    <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+class="icon-menu h3 text-white"></span></a>
+</div> -->

@@ -1,0 +1,18 @@
+<div class="staff">
+    <div class="d-flex mb-4">
+        <div class="img" [ngStyle]="{'background-image': 'url(' + teacherInput.img + ')'}"></div>
+        <div class="info ml-4">
+            <h3><a href="teacher-single.html">{{ teacherInput.firstName }}</a></h3>
+            <h3><a href="teacher-single.html">{{ teacherInput.lastName }}</a></h3>
+            <span class="position">{{ teacherInput.speciality }}</span>
+            <p class="ftco-social d-flex">
+                <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-twitter"></span></a>
+                <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a>
+                <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-instagram"></span></a>
+            </p>
+        </div>
+    </div>
+    <div class="text justify-content-center" style="text-align: center;">
+        <p>experience:{{ teacherInput.experience }} years</p>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="course align-self-stretch">
+    <!-- Affichage de l'image du cours -->
+    <a href="#" class="img" [ngStyle]="{'background-image': 'url(' + courseInput.img + ')'}"></a>
+
+    <div class="text p-4">
+        <!-- Affichage du domaine du cours -->
+        <p class="category"><span>{{courseInput.domaine}}</span></p>
+
+        <!-- Affichage du titre du cours -->
+        <h3 class="mb-3"><a href="#">{{courseInput.title}}</a></h3>
+
+        <!-- Affichage de la durée du cours -->
+        <p>Duration: {{courseInput.nbrOfHour}} hours</p>
+
+        <!-- Affichage du prix du cours -->
+        <p>Price: {{courseInput.price}} TND</p>
+
+        <span *ngIf="decoded.role !== 'student'">
+            <p *ngFor="let teacher of courseInput.teachers">
+                Teacher: {{ teacher.firstName }} {{ teacher.lastName }} <br>
+            </p>
+        </span>
+
+        <p>Number of Students: {{courseInput.students ? courseInput.students.length : 0}}</p>
+
+        <a *ngIf="courseInput.file && isLoggedIn()" [href]="courseInput.file" download="course-document.pdf" class="btn btn-primary">
+            Download PDF
+          </a>
+
+        <button *ngIf="isCourseInfoPage()" type="button" class="btn btn-warning" (click)="goToListOfStudents(courseInput._id)">liste of
+            students</button>
+
+        <!-- Affichage des étudiants (si c'est un tableau) -->
+    </div>
+</div>

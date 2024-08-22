@@ -1,0 +1,27 @@
+<div class="staff">
+    <div class="d-flex mb-4">
+        <div class="img" [ngStyle]="{'background-image': 'url(' + studentInput.img + ')'}"></div>
+        <div class="info ml-4">
+            <h3><a href="teacher-single.html">{{ studentInput.firstName }}</a></h3>
+            <h3><a href="teacher-single.html">{{ studentInput.lastName }}</a></h3>
+
+
+            <p class="ftco-social d-flex">
+                <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-twitter"></span></a>
+                <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a>
+                <a href="#" class="d-flex justify-content-center align-items-center"><span class="icon-instagram"></span></a>
+            </p>
+        </div>
+    </div>
+    <div style="text-align: left;">
+        <div class="position">
+            parent :{{ studentInput.parent }}</div>
+        <div class="position">
+            parent's Contact :{{ studentInput.telParent }}
+            <div>course : <span *ngFor="let course of studentInput.course">
+                {{course.title}} <br>
+            </span></div>
+            <!-- <div>score :{{ studentInput.score }}</div>
+            <div>feedback :{{ studentInput.feedback }}</div> -->
+        </div>
+    </div>

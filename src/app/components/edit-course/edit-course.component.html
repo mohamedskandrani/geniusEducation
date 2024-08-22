@@ -1,0 +1,32 @@
+<div class="hero-wrap" style="background-image: url('assets/images/bg_2.jpg'); background-attachment:fixed;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-8  text-center">
+                <h1 class="mb-4">Edit Course</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section" style="margin-top: 5%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <form #courseForm="ngForm" (ngSubmit)="editCourse()">
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="course.title" [ngModelOptions]="{standalone:true}" class="form-control" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" [(ngModel)]="course.nbrOfHour" [ngModelOptions]="{standalone:true}" class="form-control" placeholder="nbrOfHour">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" [(ngModel)]="course.price" [ngModelOptions]="{standalone:true}" class="form-control" placeholder="Price">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary py-3 px-5" value="Edit Course">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

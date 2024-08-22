@@ -1,0 +1,15 @@
+<div class="hero-wrap" style="background-image: url('assets/images/bg_2.jpg'); background-attachment:fixed;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-8  text-center">
+                <h1 class="mb-4">Our Courses</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center" style="margin-top: 5%;">
+    <div *ngFor="let elt of coursesTab" class="col-md-4 d-flex justify-content-center">
+        <app-course [courseInput]="elt"></app-course>
+    </div>
+</div>

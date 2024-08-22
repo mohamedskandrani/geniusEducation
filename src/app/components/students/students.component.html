@@ -1,0 +1,19 @@
+<div class="hero-wrap" style="background-image: url('assets/images/image_3.jpg'); background-attachment:fixed;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-8  text-center">
+                <h1 class="mb-4">Students</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-section bg-light d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 mb-sm-4" *ngFor="let student of studentsTab">
+                <app-student [studentInput]="student"></app-student>
+            </div>
+        </div>
+    </div>
+</section>

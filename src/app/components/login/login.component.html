@@ -1,0 +1,48 @@
+<div class="hero-wrap" style="background-image: url('assets/images/image_1.jpg'); background-attachment:fixed;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-5  text-center">
+                <form [formGroup]="loginForm">
+                    <div class="form-group">
+                        <input type="email" formControlName="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div *ngIf="
+                     loginForm.controls['email'].invalid &&
+                    ( loginForm.controls['email'].touched || 
+                     loginForm.controls['email'].dirty)">
+                        <div *ngIf=" loginForm.controls['email'].errors?.['required']">
+                            Email is required
+                        </div>
+                        <div *ngIf=" loginForm.controls['email'].errors?.['email']">
+                            Form Email invalid
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="pwd" class="form-control" placeholder="password">
+                    </div>
+                    <div *ngIf="
+                             loginForm.controls['pwd'].invalid &&
+                            ( loginForm.controls['pwd'].touched || 
+                             loginForm.controls['pwd'].dirty)">
+                        <div *ngIf=" loginForm.controls['pwd'].errors?.['required']">
+                            pwd is required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" (click)="login()" class="btn btn-primary py-3 px-5">
+                    </div>
+                    <div *ngIf="erreur" class="error-message">
+                        {{ erreur }}
+                    </div>
+
+                    <!-- <div class="form-group">
+                        <input type="submit" (click)="login()" [disabled]="loginForm.invalid" class="btn btn-primary py-3 px-5" value="signin">
+                    </div> -->
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

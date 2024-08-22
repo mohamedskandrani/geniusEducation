@@ -1,0 +1,23 @@
+<!-- student-assessments.component.html -->
+<div class="container">
+    <h2>student's assessment</h2>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Last Course</th>
+                <th>Score</th>
+                <th>feedback</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let assessment of assessmentsTab.assessments">
+                <td>{{ assessment.course.title }}</td>
+                <td>{{ assessment.score }}</td>
+                <td>{{ assessment.feedback }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

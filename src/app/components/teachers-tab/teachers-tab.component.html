@@ -1,0 +1,31 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">lastName</th>
+            <th scope="col">Speciality</th>
+            <th scope="col">experience</th>
+            <th scope="col">status</th>
+            <th scope="col">action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elt of teachersTab">
+
+            <td>{{elt._id}}</td>
+            <td>{{elt.firstName}}</td>
+            <td>{{elt.lastName}}</td>
+            <td>{{elt.speciality}}</td>
+            <td>{{elt.experience}}</td>
+            <td>{{elt.status}}</td>
+
+            <td><button style="margin-right: 2%;" type="button" class="btn btn-success" (click)="goToTeacherInfo(elt._id)">display</button> <button style="margin-right: 2%;" type="button" class="btn btn-danger" (click)="editTeacher(elt.id)">edit</button>
+                <button style="margin-right: 2%;" type="button" class="btn btn-danger" (click)="deleteTeacher(elt._id)">delete</button>
+                <button *ngIf="elt.status==='not validated'" style="margin-left: 7%;" type="button" class="btn btn-warning" (click)="validateTeacher(elt._id)">validate</button>
+            </td>
+            <!-- <td><button style="margin-right: 2%;" type="button" class="btn btn-success" (click)="display(elt._id)">display</button> <button type="button" class="btn btn-danger" (click)="goToEdit(elt._id)">edit</button><button type="button" class="btn btn-danger"
+                        (click)="delete(elt._id)">delete</button></td> -->
+        </tr>
+    </tbody>
+</table>

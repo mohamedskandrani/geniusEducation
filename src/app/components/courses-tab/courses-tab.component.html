@@ -1,0 +1,45 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Domaine</th>
+            <th scope="col">Title</th>
+            <th scope="col">nbrOfHour</th>
+            <th scope="col">Price</th>
+            <th scope="col">Students</th>
+            <th scope="col">Teachers</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elt of coursesTab">
+
+            <td>{{elt?._id}}</td>
+            <td>{{elt?.domaine}}</td>
+            <td>{{elt?.title}}</td>
+            <td>{{elt?.nbrOfHour}}</td>
+            <td>{{elt?.price}}</td>
+
+            <!-- Display students -->
+            <td>
+                <span *ngFor="let student of elt.students">
+                    {{student.firstName}} {{student.lastName}}  <br>
+                </span>
+            </td>
+
+            <!-- Display teachers -->
+            <td>
+                <span *ngFor="let teacher of elt.teachers">
+                    {{teacher.firstName}} {{teacher.lastName}} <br>
+                </span>
+            </td>
+
+            <td>
+                <button style="margin-right: 2%;" type="button" class="btn btn-success" (click)="goToCourseInfo(elt._id)">Display</button>
+                <button style="margin-right: 2%;" type="button" class="btn btn-danger" (click)="editCourse(elt._id)">Edit</button>
+                <button style="margin-right: 2%;" type="button" class="btn btn-danger" (click)="deleteCourse(elt._id)">Delete</button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

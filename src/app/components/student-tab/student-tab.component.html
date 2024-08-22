@@ -1,0 +1,36 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">name</th>
+            <th scope="col">last Name</th>
+            <th scope="col">email</th>
+            <th scope="col">parent</th>
+            <th scope="col">parent'sTel</th>
+            <th scope="col">course</th>
+            <th scope="col">action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elt of studentsTab">
+
+            <td>{{elt._id}}</td>
+            <td>{{elt.firstName}}</td>
+            <td>{{elt.lastName}}</td>
+            <td>{{elt.email}}</td>
+            <td>{{elt.parent}}</td>
+            <td>{{elt.telParent}}</td>
+            <td>
+                <span *ngFor="let course of elt.course">
+                    {{course.title}}<br>
+                </span>
+            </td>
+
+            <td><button style="margin-right: 2%;" type="button" class="btn btn-success" (click)=" goToStudentInfo(elt._id)">display</button><button style="margin-right: 2%;" type="button" class="btn btn-danger" (click)="delete(elt._id)">delete</button>
+                <button *ngIf="decoded?.role === 'teacher'" style="margin-right: 2%;" type="button" class="btn btn-warning" (click)="goToEvaluation(elt._id)">Evaluation</button>
+            </td>
+            <!-- <td><button style="margin-right: 2%;" type="button" class="btn btn-success" (click)="display(elt._id)">display</button> <button type="button" class="btn btn-danger" (click)="goToEdit(elt._id)">edit</button><button type="button" class="btn btn-danger"
+                        (click)="delete(elt._id)">delete</button></td> -->
+        </tr>
+    </tbody>
+</table>
